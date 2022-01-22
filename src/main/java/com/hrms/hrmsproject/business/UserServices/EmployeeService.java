@@ -1,8 +1,6 @@
 package com.hrms.hrmsproject.business.UserServices;
 
-import com.hrms.hrmsproject.core.exceptions.EmailAlreadyInUseException;
 import com.hrms.hrmsproject.core.exceptions.EmployeeNotFoundException;
-import com.hrms.hrmsproject.core.exceptions.PasswordsNotMatchingException;
 import com.hrms.hrmsproject.dataAccess.UserRepos.EmployeeRepository;
 import com.hrms.hrmsproject.entity.dtos.EmployeeDto.EmployeeDtoConv;
 import com.hrms.hrmsproject.entity.dtos.EmployeeDto.EmployeeReq;
@@ -11,7 +9,6 @@ import com.hrms.hrmsproject.entity.users.Employee;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service

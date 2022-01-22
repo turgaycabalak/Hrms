@@ -5,8 +5,8 @@ import com.hrms.hrmsproject.entity.cv.Education;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class EducationDtoConv {
@@ -23,10 +23,9 @@ public class EducationDtoConv {
     }
 
     public List<Education> convertToListEducation(List<EducationReq> educationReqs,Cv cv){
-        List<Education> educations = new ArrayList<>();
-        educationReqs.forEach(educationReq -> educations.add(convertToEducation(educationReq,cv)));
-
-        return educations;
+        return educationReqs.stream()
+                .map(educationReq -> convertToEducation(educationReq,cv))
+                .collect(Collectors.toList());
     }
 
     public EducationResponse convertToEducationResponse(Education education){
@@ -40,10 +39,9 @@ public class EducationDtoConv {
     }
 
     public List<EducationResponse> convertToListEducationResponse(List<Education> educations){
-        List<EducationResponse> educationResponses = new ArrayList<>();
-        educations.forEach(education -> educationResponses.add(convertToEducationResponse(education)));
-
-        return educationResponses;
+        return educations.stream()
+                .map(this::convertToEducationResponse)
+                .collect(Collectors.toList());
     }
 
 }

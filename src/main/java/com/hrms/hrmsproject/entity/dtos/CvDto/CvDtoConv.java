@@ -10,8 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -65,13 +65,12 @@ public class CvDtoConv {
     }
 
     public List<CvResponse> convertToListCvResponse(List<Cv> cvs){
-        List<CvResponse> cvResponses = new ArrayList<>();
-        cvs.forEach(cv -> cvResponses.add(convertToCvResponse(cv)));
-
-        return cvResponses;
+        return cvs.stream()
+                .map(this::convertToCvResponse)
+                .collect(Collectors.toList());
     }
 
-/////////////////////////  Cv2 converters  //////////////////////////////
+/////////////////////////  CvReq2 Type converters  //////////////////////////////
     public Cv convertToCv2(CvReq2 cvReq2, Candidate candidate){
         return new Cv(
                 candidate,

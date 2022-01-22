@@ -3,17 +3,11 @@ package com.hrms.hrmsproject.entity.dtos.JobPositionDto;
 import com.hrms.hrmsproject.entity.jobAdvertisement.JobPosition;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class JobPositionDtoConv {
-
-    public JobPosition convertToJobPosition(JobPositionReq jobPositionReq){
-        return new JobPosition(
-                jobPositionReq.getPositionName()
-        );
-    }
 
     public JobPositionResponse convertToJobPositionResponse(JobPosition jobPosition){
         return new JobPositionResponse(
@@ -23,10 +17,9 @@ public class JobPositionDtoConv {
     }
 
     public List<JobPositionResponse> convertToListJobPositionResponse(List<JobPosition> jobPositions){
-        List<JobPositionResponse> jobPositionResponses = new ArrayList<>();
-        jobPositions.forEach(jobPosition -> jobPositionResponses.add(convertToJobPositionResponse(jobPosition)));
-
-        return jobPositionResponses;
+        return jobPositions.stream()
+                .map(this::convertToJobPositionResponse)
+                .collect(Collectors.toList());
     }
 
 

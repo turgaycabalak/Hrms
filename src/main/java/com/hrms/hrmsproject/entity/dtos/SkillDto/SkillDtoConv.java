@@ -4,8 +4,8 @@ import com.hrms.hrmsproject.entity.cv.Cv;
 import com.hrms.hrmsproject.entity.cv.Skill;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class SkillDtoConv {
@@ -19,10 +19,9 @@ public class SkillDtoConv {
     }
 
     public List<Skill> convertToListSkill(List<SkillReq> skillReqs,Cv cv){
-        List<Skill> skills = new ArrayList<>();
-        skillReqs.forEach(skillReq -> skills.add(convertToSkill(skillReq,cv)));
-
-        return skills;
+        return skillReqs.stream()
+                .map(skillReq -> convertToSkill(skillReq,cv))
+                .collect(Collectors.toList());
     }
 
     public SkillResponse convertToSkillResponse(Skill skill){
@@ -34,10 +33,9 @@ public class SkillDtoConv {
     }
 
     public List<SkillResponse> convertToListSkillResponse(List<Skill> skills){
-        List<SkillResponse> skillResponses = new ArrayList<>();
-        skills.forEach(skill -> skillResponses.add(convertToSkillResponse(skill)));
-
-        return skillResponses;
+        return skills.stream()
+                .map(this::convertToSkillResponse)
+                .collect(Collectors.toList());
     }
 
 

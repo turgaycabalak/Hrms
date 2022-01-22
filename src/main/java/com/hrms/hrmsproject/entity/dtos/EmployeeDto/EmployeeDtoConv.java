@@ -4,8 +4,8 @@ import com.hrms.hrmsproject.entity.users.Employee;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class EmployeeDtoConv {
@@ -30,10 +30,9 @@ public class EmployeeDtoConv {
     }
 
     public List<EmployeeResponse> convertToListEmployeeResponse(List<Employee> employees){
-        List<EmployeeResponse> employeeResponses = new ArrayList<>();
-        employees.forEach(employee -> employeeResponses.add(convertToEmployeeResp(employee)));
-
-        return employeeResponses;
+        return employees.stream()
+                .map(this::convertToEmployeeResp)
+                .collect(Collectors.toList());
     }
 
 

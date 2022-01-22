@@ -1,12 +1,11 @@
 package com.hrms.hrmsproject.entity.dtos.EmployerDto;
 
-import com.hrms.hrmsproject.entity.dtos.EmployeeDto.EmployeeResponse;
 import com.hrms.hrmsproject.entity.users.Employer;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class EmployerDtoConv {
@@ -33,10 +32,9 @@ public class EmployerDtoConv {
     }
 
     public List<EmployerResponse> convertToListEmployerResponse(List<Employer> employers){
-        List<EmployerResponse> employerResponses = new ArrayList<>();
-        employers.forEach(employer -> employerResponses.add(converToEmployerResp(employer)));
-
-        return employerResponses;
+        return employers.stream()
+                .map(this::converToEmployerResp)
+                .collect(Collectors.toList());
     }
 
 

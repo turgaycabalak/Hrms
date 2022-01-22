@@ -3,11 +3,9 @@ package com.hrms.hrmsproject.business.UserServices;
 import com.hrms.hrmsproject.core.exceptions.EmailAlreadyInUseException;
 import com.hrms.hrmsproject.core.exceptions.PasswordsNotMatchingException;
 import com.hrms.hrmsproject.dataAccess.UserRepos.UserRepository;
-import com.hrms.hrmsproject.entity.users.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

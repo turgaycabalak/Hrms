@@ -5,8 +5,8 @@ import com.hrms.hrmsproject.entity.cv.ForeignLanguage;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class ForeignLanguageDtoConv {
@@ -21,10 +21,9 @@ public class ForeignLanguageDtoConv {
     }
 
     public List<ForeignLanguage> convertToListForeignLanguage(List<ForeignLanguageReq> foreignLanguageReqs,Cv cv){
-        List<ForeignLanguage> foreignLanguages = new ArrayList<>();
-        foreignLanguageReqs.forEach(foreignLanguageReq -> foreignLanguages.add(convertToForeignLanguage(foreignLanguageReq,cv)));
-
-        return foreignLanguages;
+        return foreignLanguageReqs.stream()
+                .map(foreignLanguageReq -> convertToForeignLanguage(foreignLanguageReq,cv))
+                .collect(Collectors.toList());
     }
 
     public ForeignLanguageResponse convertToForeignLanguageResponse(ForeignLanguage foreignLanguage){
@@ -36,10 +35,9 @@ public class ForeignLanguageDtoConv {
     }
 
     public List<ForeignLanguageResponse> convertToListForeignLanguageResponse(List<ForeignLanguage> foreignLanguages){
-        List<ForeignLanguageResponse> foreignLanguageResponses = new ArrayList<>();
-        foreignLanguages.forEach(foreignLanguage -> foreignLanguageResponses.add(convertToForeignLanguageResponse(foreignLanguage)));
-
-        return foreignLanguageResponses;
+        return foreignLanguages.stream()
+                .map(this::convertToForeignLanguageResponse)
+                .collect(Collectors.toList());
     }
 
 }

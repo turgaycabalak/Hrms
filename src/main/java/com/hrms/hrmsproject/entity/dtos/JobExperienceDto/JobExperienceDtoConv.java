@@ -6,8 +6,8 @@ import com.hrms.hrmsproject.entity.jobAdvertisement.JobPosition;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class JobExperienceDtoConv {
@@ -34,10 +34,9 @@ public class JobExperienceDtoConv {
     }
 
     public List<JobExperienceResponse> convertToListJobExperienceResponse(List<JobExperience> jobExperiences){
-        List<JobExperienceResponse> jobExperienceResponses = new ArrayList<>();
-        jobExperiences.forEach(jobExperience -> jobExperienceResponses.add(convertToJobExperienceResponse(jobExperience)));
-
-        return jobExperienceResponses;
+        return jobExperiences.stream()
+                .map(this::convertToJobExperienceResponse)
+                .collect(Collectors.toList());
     }
 
 
