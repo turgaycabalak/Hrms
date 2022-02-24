@@ -22,7 +22,7 @@ public class JobPositionService {
 
     public JobPositionResponse saveJobPosition(String positionName) {
         if(jobPositionRepo.findByPositionName(positionName.toUpperCase()).isPresent()){
-            throw new PositionNameAlreadyExistException("Position name is already exist!");
+            throw new PositionNameAlreadyExistException("Position name already exists!");
         }
 
         JobPosition savedJobPosition = jobPositionRepo.save(new JobPosition(positionName.toUpperCase()));

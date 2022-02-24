@@ -5,10 +5,7 @@ import com.hrms.hrmsproject.entity.BaseEntity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -22,13 +19,16 @@ public class ForeignLanguage extends BaseEntity {
     @JsonIgnore
     private Cv cv;
 
-    private String language;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "language_id")
+    private Language language;
+
     private int level;
     private LocalDateTime createdDate;
 
 
     public ForeignLanguage(Cv cv,
-                           String language,
+                           Language language,
                            int level,
                            LocalDateTime createdDate) {
         this.cv = cv;

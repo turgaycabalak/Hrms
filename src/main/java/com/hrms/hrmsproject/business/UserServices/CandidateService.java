@@ -46,11 +46,13 @@ public class CandidateService {
 
 
     public CandidateResponse saveCandidate(CandidateReq candidateReq) {
-        userService.validateUserEmailAndPassword(
-                candidateReq.getPassword(),
-                candidateReq.getPasswordRepeat(),
-                candidateReq.getEmail()
-        );
+//        userService.validateUserEmailAndPassword(
+//                candidateReq.getPassword(),
+//                candidateReq.getPasswordRepeat(),
+//                candidateReq.getEmail()
+//        );
+        // validation processes
+
         if(candidateRepository.findByIdentityNumber(candidateReq.getIdentityNumber()).isPresent()){
             throw new IdentityNumberAlreadyInUseException("This identity number is already taken!");
         }

@@ -32,17 +32,17 @@ public class CvController {
 
 
 
-    @PostMapping("savecv")
-    public ResponseEntity<?> saveCv(@Valid @RequestBody CvReq cvReq){
-        return new ResponseEntity<>(cvService.saveCv(cvReq), HttpStatus.CREATED);
-    }
+//    @PostMapping("savecv")
+//    public ResponseEntity<?> saveCv(@Valid @RequestBody CvReq cvReq){
+//        return new ResponseEntity<>(cvService.saveCv(cvReq), HttpStatus.CREATED);
+//    }
 
     @PostMapping("savecv2")
     public ResponseEntity<?> saveCv2(@Valid @RequestBody CvReq2 cvReq2){
         return new ResponseEntity<>(cvService.saveCv2(cvReq2), HttpStatus.CREATED);
     }
 
-////////////////////////////////////  ADD  ////////////////////////////////////
+////////////////////////////////////  ADD CV COMPONENTS ////////////////////////////////////
     @PostMapping("addeducation")
     public ResponseEntity<?> addEducation(@Valid @RequestBody EducationReq educationReq,
                                           @RequestParam @Min(value = 1,message = NOT_VALID_ID)  Long cvId){

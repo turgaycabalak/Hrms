@@ -3,6 +3,7 @@ package com.hrms.hrmsproject.business.UserServices;
 import com.hrms.hrmsproject.core.exceptions.EmailAlreadyInUseException;
 import com.hrms.hrmsproject.core.exceptions.PasswordsNotMatchingException;
 import com.hrms.hrmsproject.dataAccess.UserRepos.UserRepository;
+import com.hrms.hrmsproject.entity.dtos.UserDto.UserValidationDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,12 @@ public class UserService {
             throw new EmailAlreadyInUseException("This email is already taken!");
         }
     }
+
+//    public void isUserValidated(UserValidationDto dto){
+//        UserValidator.isEmailAlreadyTaken().apply(dto);
+//
+//    }
+
 
 
 

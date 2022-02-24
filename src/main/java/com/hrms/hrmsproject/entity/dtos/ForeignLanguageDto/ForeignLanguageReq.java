@@ -12,9 +12,9 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class ForeignLanguageReq {
 
-    @NotBlank(message = "Language is required!")
-    @NotNull
-    private String language;
+    @Min(value = 1,message = "Language is required!")
+    @NotNull(message = "Language is required!")
+    private Long languageId;
 
     @Min(value = 1,message = "Language level should be between 1-5!")
     @Max(value = 5,message = "Language level should be between 1-5!")

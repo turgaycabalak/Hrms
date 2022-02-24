@@ -35,40 +35,40 @@ public class CvService {
     private final SkillDtoConv skillDtoConv;
 
 
-    public CvResponse saveCv(CvReq cvReq) {
-        Candidate candidate = candidateService.findCandidateById(cvReq.getCandidateId());
-        Cv cvWillSaveDb = cvDtoConv.convertToCv(cvReq,candidate);
-
-        if(cvReq.getEducationReqs() != null){
-            List<Education> educations = educationDtoConv.convertToListEducation(cvReq.getEducationReqs(),cvWillSaveDb);
-
-            cvWillSaveDb.setEducations(educations);
-        }
-        if(cvReq.getJobExperienceReqs() != null){
-            List<JobExperience> jobExperiences = new ArrayList<>();
-            List<JobExperienceReq> jobExperienceReqs = cvReq.getJobExperienceReqs();
-
-            jobExperienceReqs.forEach(jobExperienceReq -> {
-                JobPosition jobPosition = jobPositionService.findJobPositionById(jobExperienceReq.getJobPositionId());
-                jobExperiences.add(jobExperienceDtoConv.convertToJobExperience(jobExperienceReq,cvWillSaveDb,jobPosition));
-            });
-
-            cvWillSaveDb.setJobExperiences(jobExperiences);
-        }
-        if(cvReq.getForeignLanguageReqs() != null){
-            List<ForeignLanguage> foreignLanguages = foreignLanguageDtoConv.convertToListForeignLanguage(cvReq.getForeignLanguageReqs(),cvWillSaveDb);
-
-            cvWillSaveDb.setForeignLanguages(foreignLanguages);
-        }
-        if(cvReq.getSkillReqs() != null){
-            List<Skill> skills = skillDtoConv.convertToListSkill(cvReq.getSkillReqs(),cvWillSaveDb);
-
-            cvWillSaveDb.setSkills(skills);
-        }
-
-        Cv savedCv = cvRepository.save(cvWillSaveDb);
-        return cvDtoConv.convertToCvResponse(savedCv);
-    }
+//    public CvResponse saveCv(CvReq cvReq) {
+//        Candidate candidate = candidateService.findCandidateById(cvReq.getCandidateId());
+//        Cv cvWillSaveDb = cvDtoConv.convertToCv(cvReq,candidate);
+//
+//        if(cvReq.getEducationReqs() != null){
+//            List<Education> educations = educationDtoConv.convertToListEducation(cvReq.getEducationReqs(),cvWillSaveDb);
+//
+//            cvWillSaveDb.setEducations(educations);
+//        }
+//        if(cvReq.getJobExperienceReqs() != null){
+//            List<JobExperience> jobExperiences = new ArrayList<>();
+//            List<JobExperienceReq> jobExperienceReqs = cvReq.getJobExperienceReqs();
+//
+//            jobExperienceReqs.forEach(jobExperienceReq -> {
+//                JobPosition jobPosition = jobPositionService.findJobPositionById(jobExperienceReq.getJobPositionId());
+//                jobExperiences.add(jobExperienceDtoConv.convertToJobExperience(jobExperienceReq,cvWillSaveDb,jobPosition));
+//            });
+//
+//            cvWillSaveDb.setJobExperiences(jobExperiences);
+//        }
+//        if(cvReq.getForeignLanguageReqs() != null){
+//            List<ForeignLanguage> foreignLanguages = foreignLanguageDtoConv.convertToListForeignLanguage(cvReq.getForeignLanguageReqs(),cvWillSaveDb);
+//
+//            cvWillSaveDb.setForeignLanguages(foreignLanguages);
+//        }
+//        if(cvReq.getSkillReqs() != null){
+//            List<Skill> skills = skillDtoConv.convertToListSkill(cvReq.getSkillReqs(),cvWillSaveDb);
+//
+//            cvWillSaveDb.setSkills(skills);
+//        }
+//
+//        Cv savedCv = cvRepository.save(cvWillSaveDb);
+//        return cvDtoConv.convertToCvResponse(savedCv);
+//    }
 
 
     public Cv findCvById(Long cvId) {

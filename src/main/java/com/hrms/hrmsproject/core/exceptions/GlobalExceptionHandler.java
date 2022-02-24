@@ -321,6 +321,20 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(apiException, httpStatus);
     }
 
+    @ExceptionHandler(value = {LanguageAlreadyInCvException.class})
+    public ResponseEntity<Object> handleLanguageAlreadyInCvException(LanguageAlreadyInCvException e){
+        // 1. Create payload containing exception details
+        HttpStatus httpStatus = HttpStatus.CONFLICT;
+        ApiException apiException = new ApiException(
+                e.getMessage(),
+                httpStatus,
+                LocalDateTime.now()
+        );
+
+        // 2. Return response entity
+        return new ResponseEntity<>(apiException, httpStatus);
+    }
+
 
 
 
