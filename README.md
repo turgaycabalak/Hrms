@@ -62,11 +62,11 @@ Host: localhost:8080
 Content-Type: application/json
 
 {
-    "email": "example@mail.com",
+    "email": "abc@example.com",
     "password": "123456",
     "passwordRepeat": "123456",
-    "firstName": "examplefname",
-    "lastName": "examplelname",
+    "firstName": "example",
+    "lastName": "example",
     "identityNumber": "11111111111",
     "birthYear": 1991
 ```
@@ -82,11 +82,11 @@ Host: localhost:8080
 Content-Type: application/json
 
 {
-    "email": "ayaz@mail.com",
+    "email": "abc@example.com",
     "password": "123456",
     "passwordRepeat": "123456",
-    "firstName": "examplefname",
-    "lastName": "examplelname"
+    "firstName": "example",
+    "lastName": "example"
 }
 ```
 ##### Find All Employees
@@ -101,9 +101,9 @@ Host: localhost:8080
 Content-Type: application/json
 
 {
-    "companyName": "example company name",
-    "website": "www.examplecompany.com",
-    "email": "abc@examplecompany.com",
+    "companyName": "example",
+    "website": "www.example.com",
+    "email": "abc@example.com",
     "password": "123456",
     "passwordRepeat": "123456",
     "phoneNumber": "1111111"
@@ -151,7 +151,7 @@ Content-Type: application/json
 
 {
     "jobPositionId": 1,
-    "jobDescription": "example description",
+    "jobDescription": "example",
     "cityId": 1,
     "minSalary": 1000,
     "maxSalary": 1000,
