@@ -6,6 +6,7 @@ This is a kind of human resources management system back-end system simulation a
 ### Technologies
 
 - Spring Boot
+- Maven
 - [Maildev (For simulating sending verification email)](https://maildev.github.io/maildev/)
 
 #### Some Information About Project
