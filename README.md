@@ -1,12 +1,6 @@
 
 # Human Resources Management System
 
-# Table of Contents
-1. [Example](#example)
-2. [Example2](#example2)
-3. [Third Example](#third-example)
-4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
-5. 
 This is a kind of human resources management system back-end system simulation as monolithic architecture. You can register in the system as a **candidate** or an **employer**. Also you can add your own **cv** that contains many specifications like *schools*,  *job experience* etc. If you are an employer, you can publish a **job advertisement**. You can find the detailed explanation below.
 
 ### Technologies
@@ -50,10 +44,3 @@ This is a kind of human resources management system back-end system simulation a
     - Save Language
     - Find All Languages
 
-
-
-
-## Example
-## Example2
-## Third Example
-## [Fourth Example](http://www.fourthexample.com) 
