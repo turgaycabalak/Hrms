@@ -48,6 +48,22 @@ This is a kind of human resources management system back-end system simulation a
 
 ## Third Example
 ## [Fourth Example](http://www.fourthexample.com)
+##### Save Candidate
+```
+POST /candidates/savecandidate HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Content-Length: 214
+
+{
+    "email": "turgay@mail.com",
+    "password": "123456",
+    "passwordRepeat": "123456",
+    "firstName": "turgay",
+    "lastName": "cabalak",
+    "identityNumber": "11111111111",
+    "birthYear": 1991
+```
 
 - Cv
     - Save Cv
